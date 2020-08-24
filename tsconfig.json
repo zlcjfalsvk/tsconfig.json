@@ -4,36 +4,45 @@
  *  원문: https://www.typescriptlang.org/ko/tsconfig#files
  *
  */
+{
+    // 컴파일 
+    "compilerOptions": {
+        /* Project Options */
+        "plugins": [], /* ide에 실행할 언어의 플러그인 */
+        "module": "commonjs",
+        "target": "es6", /* 개발 시 사용할 ECMAScript 설정 */
+        "allowJs": true, /* JS 컴파일 허용 유무 */
+        "checkJs": true, /* JS 파일 오류 검사 */
+        "outDir": "dist", /* 컴파일 결과 디렉터리 */
+        "sourceMap": true, /* map 파일을 생성하여 디버거 및 다른 툴이 ts 코드를 표시할 수 있다. */
+        "removeComments": true, /* 컴파일 시 주석을 삭제한다. */
 
- {
-     "compilerOptions": {
-        "plugins": [
-            {         
-              "name": "typescript-tslint-plugin",
-              "alwaysShowRuleFailuresAsWarnings": false,
-              "ignoreDefinitionFiles": true,
-              "configFile": "./tslint.json",
-              "suppressWhileTypeErrorsPresent": false
-            }
-          ],
-          "module": "commonjs",
-          "target": "es6",
-          "moduleResolution": "node",
-          "esModuleInterop": true,
-          "outDir": "dist",
-          "strictNullChecks": true,
-          "sourceMap": true,
-          "typeRoots": ["node_modules/@types"],
-          "resolveJsonModule": true,
-          "forceConsistentCasingInFileNames": true,
-          "experimentalDecorators": true,
-          "emitDecoratorMetadata": true,
-     },
-     "include": [
+        /* Strict Checks */
+        "strictNullChecks": true, /* 엄격하게 undefined 및 null 관리 */
+        "noImplicitAny": true,  /* any 타입 설정 시 에러 */
+
+        /* Module Resolution */
+        "typeRoots": [
+            "node_modules/@types" /* <- Default 값. @types가 기재되어 있는 위치 */
+        ],
+        "moduleResolution": "node",/* json import 할 때 필요 */
+        "esModuleInterop": true,   /* json import 할 때 필요 */
+
+        /* Experimental*/
+        "experimentalDecorators": true, /* Decorators 사용하려면 설정 https://www.typescriptlang.org/docs/handbook/decorators.html */
+        "emitDecoratorMetadata": true,  /* Decorators MetaData 사용하려면 설정 https://www.typescriptlang.org/docs/handbook/decorators.html */
+
+        /* Advanced */
+        "resolveJsonModule": true, /* json import 할 때 필요 */
+        "charset": "utf8"
+
+    },
+    "include": [
         "src/**/*"
-     ],
-     // include 속성을 통해 포함된 파일에만 영향을 준다.
-     "exclude": [
-         "node_modules"
-     ]
- }
+    ],
+    // "include" 속성을 통해 포함된 파일에 영향을 준다.
+    // "include"를 설정하지 않으면 exclude를 제외한 나머지 파일을 컴파일에 포함된다.
+    "exclude": [
+        "node_modules"
+    ]
+}
