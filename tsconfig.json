@@ -1,0 +1,39 @@
+/**
+ *  tsconfig.json 에서 주로 사용하는 값 정리 
+ *
+ *  원문: https://www.typescriptlang.org/ko/tsconfig#files
+ *
+ */
+
+ {
+     "compilerOptions": {
+        "plugins": [
+            {         
+              "name": "typescript-tslint-plugin",
+              "alwaysShowRuleFailuresAsWarnings": false,
+              "ignoreDefinitionFiles": true,
+              "configFile": "./tslint.json",
+              "suppressWhileTypeErrorsPresent": false
+            }
+          ],
+          "module": "commonjs",
+          "target": "es6",
+          "moduleResolution": "node",
+          "esModuleInterop": true,
+          "outDir": "dist",
+          "strictNullChecks": true,
+          "sourceMap": true,
+          "typeRoots": ["node_modules/@types"],
+          "resolveJsonModule": true,
+          "forceConsistentCasingInFileNames": true,
+          "experimentalDecorators": true,
+          "emitDecoratorMetadata": true,
+     },
+     "include": [
+        "src/**/*"
+     ],
+     // include 속성을 통해 포함된 파일에만 영향을 준다.
+     "exclude": [
+         "node_modules"
+     ]
+ }
