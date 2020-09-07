@@ -10,7 +10,10 @@
         /* Project Options */
         "plugins": [], /* ide에 실행할 언어의 플러그인 */
         "module": "commonjs",
-        "target": "es6", /* 개발 시 사용할 ECMAScript 설정 */
+        "target": "es5", /* ts -> js로 트랜스파일 될 때 적용할 버전 적용 */
+        "lib": [    
+            "esnext"
+        ], /*  lib를 정의하지 않을 시 target 항목에서 지정한 ECMAScript 버전의 기본값 적용 */
         "allowJs": true, /* JS 컴파일 허용 유무 */
         "checkJs": true, /* JS 파일 오류 검사 */
         "outDir": "dist", /* 컴파일 결과 디렉터리 */
